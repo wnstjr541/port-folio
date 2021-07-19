@@ -1,5 +1,5 @@
 $('.typing').typed({
-  strings: ['WEB PUBLISHER', 'HANBEOMKYU','PORTFOLIO'],
+  strings: ['WEB PUBLISHER, Front end', 'An jun seck','PORTFOLIO'],
   typeSpeed: 50,
   backSpeed: 50,
   smartBackspace: true, // this is a default
