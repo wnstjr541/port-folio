@@ -1,0 +1,44 @@
+*{margin: 0; padding: 0;}
+#wrap{width: 1200px; margin: 0 auto;}
+header{height:100px; background: #ff73dc}
+nav{height:400px;background: #ffff99}
+aside{height:500px; width: 30%; background: #dc73ff; float: left;}
+#sec{width:100%; height: 300px; background: blue; clear: both;}
+.con1{height: 250px; float: left; background: #1a6600; width: 70%}
+.con2{height: 250px; float: left; background: #d9a300; width: 70%}
+section>.container1{width: 33.33%; height: 300px; background: #efbfff; float: left;}
+section>.container1-1{width: 33.33%; height: 300px; background: #ff73ff; float: left;}
+section>.container1-2{width: 33.33%; height: 300px; background: #ff4c79; float: left;}
+#sec>.container2{width: 16.33%; height: 50%; background: #7373ff; float: left; margin: 4%;}
+#sec>.container2-1{width: 16.33%; height: 50%; background: #7373ff; float: left; margin: 4%;}
+#sec>.container2-2{width: 16.33%; height: 50%; background: #7373ff; float: left; margin: 4%;}
+#sec>.container2-3{width: 16.33%; height: 50%; background: #7373ff; float: left; margin: 4%;}
+footer{height:100px; background: #ffff73}
+
+
+@media screen and (max-width:1280px) {
+    #wrap{width: 100%;}
+	section>.container1{width: 50%; }
+	section>.container1-1{width: 50%; }
+	section>.container1-2{display: none;}
+}
+@media screen and (max-width:780px) {
+    section>.container1{width: 100%; }
+	section>.container1-1{width: 100%; }
+}
+}
+@media screen and (max-width:480px) {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+

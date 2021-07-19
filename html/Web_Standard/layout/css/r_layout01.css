@@ -1,0 +1,51 @@
+/* *{margin: 0; padding: 0;}
+#wrap{width: 100%; height: 900px; margin: 0 auto;}
+header{width: 100%; height: 150px; background: #26ffff}
+aside{width: 30%; height: 600px; background: #ffa64c; float: left;}
+section{width: 40%; height: 600px; background: #d24cff; float: left;}
+article{width: 30%; height: 600px; background: #2693ff; float: left;}
+footer{width: 100%; height: 150px; background: #ffbfcf; clear: both} */
+
+/* pc버전 */
+/* @media screen and (max-width:1200px) {
+	aside{width: 40%; float: left; height: 400px;}
+	section{width: 60%; float: left; height: 400px;}
+	article{width: 100%; clear: both; height: 200px;}
+} */
+/* 테블릿 */
+/* @media screen and (max-width:768px) {
+   aside{width: 50%; float: left; height: 600px;}
+	section{width: 50%; float: left; height: 600px;}
+	article{display: none;}
+} */
+/* 모바일 */
+/* @media screen and (max-width:480px) {
+   aside{width: 100%; float: none; height: 200px;}
+	section{width: 100%; float: none; height: 200px;}
+	article{display: block; height: 200px; width: 100%}
+} */
+
+{margin: 0; padding: 0;}
+#wrap{width: 100%; height: 900px; margin: 0 auto;}
+header{width: 100%; height: 150px; background: #26ffff}
+aside{width: 30%; height: 600px; background: #ffa64c; float: left;}
+section{width: 40%; height: 600px; background: #d24cff; float: left;}
+article{width: 30%; height: 600px; background: #2693ff; float: left;}
+footer{width: 100%; height: 150px; background: #ffbfcf; clear: both}
+
+@media screen and (max-width:1200px) {
+    aside{width: 40%; height: 400px; background: #ffa64c; float: left;}
+	section{width: 60%; height: 400px; background: #d24cff; float: left;}
+	article{width: 100%; height: 200px; background: #2693ff; float: left; clear: both;}
+}
+@media screen and (max-width:768px) {
+    aside{width: 40%; height: 600px; background: #ffa64c; float: left;}
+	section{width: 60%; height: 600px; background: #d24cff; float: left;}
+	article{display: none;}
+}
+@media screen and (max-width:480px) {
+    aside{width: 100%; height: 200px; background: #ffa64c; float: left;}
+	section{width: 100%; height: 200px; background: #d24cff; float: left;}
+	article{display: block; height: 200px; width: 100%}
+}
+

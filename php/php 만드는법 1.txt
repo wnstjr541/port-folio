@@ -1,0 +1,221 @@
+1. sql 설정
+
+create table board1(
+    num int not null auto_increment,
+    id char(15) not null,
+    name char(10) not null,
+    subject char(200) not null,
+    content text not null,
+    regist_day char(20) not null,
+    hit int not null,
+    file_name char(40),
+    file_type char(40),
+    file_copied char(40),
+    primary key(num)
+);
+
+2. board_form.php파일 생성.
+
+body 내용
+ <header>
+     <?php include "header.php" ?>  //header.php 만든거 연결
+ </header>
+
+   <section>
+      <div id="main_img_bar">
+         <img src="img/main_img.png" alt="mainimg"/>
+      </div>
+      <div id="board_box">
+        <h3 id="board_title">게시판 글쓰기</h3>
+        <form action="board_insert.php" method="Post" name="board_form" enctype="multipart/form-data">
+	// action : 데이터를 보내는 목적지 url을 지정. enctype은 밑에 설명.
+            <ul id="board_form">  
+                <li>
+                    <span class="col1">이름 : </span>
+                    <span class="col2"><?=$username?></span>
+                </li>
+                <li>
+                    <span class="col1">제목 : </span>
+                    <span class="col2"><input type="text" name="subject"></span>
+                </li>
+                <li>
+                    <span class="col1">내용 : </span>
+                    <span class="col2"><textarea name="content"></textarea></span>
+                </li>
+                <li>
+                    <span class="col1">첨부파일 : </span>
+                    <span class="col2"><input type="file" name="upfile"></span>  
+                </li>
+            </ul>
+            <ul class="buttons">
+                <li><button type="button" onclick="check_input()">완료</button></li>
+                <li><button type="button" onclick="location.href='board_list.php'">목록</button></li>
+            </ul>
+        </form>
+      </div>
+   </section>
+
+   <footer>
+      <?php include "footer.php" ?>  //footer.php 만든거 연결
+   </footer>
+--------------------------------------------------------------------------------------------------------------------------------------------------
+* form enctype 종류
+
+1) application/x-www-form-urlencoded
+기본값으로, 모든 문자들은 서버로 보내기 전에 인코딩됨을 명시함.
+
+2) multipart/form-data
+모든 문자를 인코딩하지 않음을 명시함.
+이 방식은 <form> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용함.
+multipart/form-data // form-data는 data폴더에 이미지나 파일을 저장시킨다. data말고 다른 이름은 불가능. ex form-date같은거 안됌.
+ 	
+3) text/plain
+공백 문자(space)는 "+" 기호로 변환하지만, 나머지 문자는 모두 인코딩되지 않음을 명시함.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. js부분 설정.
+  function check_input(){
+       if(!document.board_form.subject.value){     //subject즉 제목의 값이 없으면 아래것이 실행
+            alert("제목을 입력하세요");
+            document.board_form.subject.focus();
+            return;
+         }
+         if(!document.board_form.content.value){    //content 즉 내용의 값이 없으면 아래것이 실행
+             alert("내용을 입력하세요");
+             document.board_form.content.focus();
+             return;
+         }
+         document.board_form.submit();
+//위의 조건들이 수행된후 submit을 실행. 즉 조건들이 수행되고나면 board_form을 실행시켜라
+        }
+
+
+4. board_form.php에서 만든 form action="board_insert.php" 이부분. 즉 action 데이터를 보내는 목적지 url부분할 차례. board_insert.php파일을 만든다.
+
+board_insert.php 파일
+
+<?php header("Content-type:text/html; charset=utf-8")?>
+<?php 
+    session_start();  //웹페이지 로그인상태 확인.
+    //isset()함수는 존재유무 확인. session(php 내장함수. 서버에 파일로 정보를 저장)안에 userid있는지 확인하는것
+    
+    if(isset($_SESSION["userid"])){
+        $userid=$_SESSION["userid"]; //userid값이 있다면 userid안에 넣어라.
+    }else{
+        $userid=""; //userid값이 없으면 비워놓아라 밑에 다시 설정
+    }
+
+    if(isset($_SESSION["username"])){
+        $username=$_SESSION["username"]; 
+    }else{
+        $username="";
+    }
+
+    if(!$userid){
+        //histroy.go(-1) 이전. 뒤로가기
+        echo("<script>alert('게시판 글쓰기는 로그인후 이용해주세요'); history.go(-1)</script>");
+        exit; //나가라는뜻
+    }
+
+    $subject=$_POST["subject"];
+    $content=$_POST["content"];
+    $subject=htmlspecialchars($subject, ENT_QUOTES); //ENT_QUOTES " '' " 이런식으로 따옴표를 자동으로 생성해준다.
+    $content=htmlspecialchars($subject, ENT_QUOTES); // htmlspecialchars : HTML 환경에서 < 또는 > 문자를 HTML 엔티티로 인코딩하여, 레이아웃이 깨지거나 스크립트 오류가 나는 것을 방지한다
+
+    $regist_day=date("Y-m-d (H:i)"); //sql에서 지정한것에 값을줌.
+    $upload_dir='./data/';  
+
+    //$_FILES는 php내장함수.
+    $upfile_name=$_FILES["upfile"]["name"]; // 전송된 파일의 실제 이름 값
+    $upfile_tmp_name=$_FILES["upfile"]["tmp_name"]; //서버에 저장된 임시 복사본의 이름
+    $upfile_type=$_FILES["upfile"]["type"]; //전송된 파일의 형식(type)
+    $upfile_size=$_FILES["upfile"]["size"]; //전송된 파일의 용량(기본 byte 값)
+    $upfile_error=$_FILES["upfile"]["error"]; //에러가 있으면 어떤 에러인지 출력함
+
+    if($upfile_name && !$upfile_error ){ //파일의 실제 이름값이 오류가 아니라면
+        $file=explode(".",$upfile_name); //$file에 explode구분. 즉 ,를 기준으로 구분한다. upfile_name값을. ex) 준석,안준석
+        $file_name=$file[0]; //파일의 이름
+        $file_ext=$file[1]; //파일의 확장자 jpg같은거
+
+        $now_file_name=date("Y-M-D_H_i_s"); //년 월 일 시간들
+        $new_file_name=$now_file_name; //new_file_name 여기에 now_file_name 저장.
+        $copied_file_name=$new_file_name.".".$file_ext;  // 년 월 시간.".".파일 확장자
+        $uploaded_file = $upload_dir.$copied_file_name; // upload_dir이부분은 경로를 담고있다. copied_file_name에는 파일의 날짜와 시간이 있고"." 파일 확장자가 있다. 연결해서 경로.파일 날짜시간.확장자
+
+        if($upfile_size> 1000000){
+            echo("<script>alert('업로드 파일크기가 지정한 용량(1MB) 초과<br/> 파일 크기를 체크해주세요'); history.go(-1)</script>");
+            exit;
+        }
+        if(!move_uploaded_file($upfile_tmp_name, $uploaded_file)){ //move_uploaded_file즉 업로드 파일이 없으면 upfile_tmp_name서버에 저장된 임시복사본 이름,  uploaded_file  경로.파일 날짜시간.확장자
+            echo("<script>alert('파일을 지정한 디렉토리에 복사하는데 실패했습니다.'); history.go(-1)</script>");
+            exit;
+        }
+    }else{ //파일의 이름과 형식. 파일의 년월시간 파일확장자 전부 비워라
+        $upfile_name="";
+        $upfile_type="";
+        $copied_file_name="";
+    }
+
+    $con=mysqli_connect("localhost", "wnstjr541", "rkwurk11!", "wnstjr541");//mysql 서버 접속('host','사용자계정(root)','비밀번호','데이터베이스(sample)')
+	$sql="insert into board1 (id, name, subject, content, regist_day, hit, file_name, file_type, file_copied)";
+    //board1에 insert즉 아래의 values값을 삽입시킨다.
+
+	$sql .="values ('$userid','$username','$subject','$content','$regist_day','$upfile_name','$upfile_type','$copied_file_name')";
+    //sql의 value값
+	
+	mysqli_query($con, $sql);//명령 실행
+
+    $point_up=100;
+    $sql="select point from members where id = '$userid'";
+    $result= mysqli_query($con,$sql);
+    $row= mysqli_fetch_array($result);
+    $new_point=$row["point"]+$point_up;
+    $sql="update members set point=$new_point where id='$userid'";
+
+    mysqli_query($con, $sql);
+	mysqli_close($con);
+	echo "<script>location.href='board_list.php'</script>";
+	
+?>
+
+        if($upfile_size> 1000000){
+            echo("<script>alert('업로드 파일크기가 지정한 용량(1MB) 초과<br/> 파일 크기를 체크해주세요'); history.go(-1)</script>");
+            exit;
+        }
+        if(!move_uploaded_file($upfile_tmp_name, $uploaded_file)){ //move_uploaded_file즉 업로드 파일이 없으면 upfile_tmp_name서버에 저장된 임시복사본 이름,  uploaded_file  경로.파일 날짜시간.확장자
+            echo("<script>alert('파일을 지정한 디렉토리에 복사하는데 실패했습니다.'); history.go(-1)</script>");
+            exit;
+        }
+    }else{ //파일의 이름과 형식. 파일의 년월시간 파일확장자 전부 비워라
+        $upfile_name="";
+        $upfile_type="";
+        $copied_file_name="";
+    }
+
+    $con=mysqli_connect("localhost", "wnstjr541", "rkwurk11!", "wnstjr541");//mysql 서버 접속('host','사용자계정(root)','비밀번호','데이터베이스(sample)')
+	$sql="insert into board1 (id, name, subject, content, regist_day, hit, file_name, file_type, file_copied)";
+    //board1에 insert즉 아래의 values값을 삽입시킨다.
+
+	$sql .="values ('$userid','$username','$subject','$content','$regist_day','$upfile_name','$upfile_type','$copied_file_name')";
+    //sql의 value값
+	
+	mysqli_query($con, $sql);//명령 실행
+
+    $point_up=100;
+    $sql="select point from members where id = '$userid'";
+    $result= mysqli_query($con,$sql);
+    $row= mysqli_fetch_array($result);
+    $new_point=$row["point"]+$point_up;
+    $sql="update members set point=$new_point where id='$userid'";
+
+    mysqli_query($con, $sql);
+	mysqli_close($con);
+	echo "<script>location.href='board_list.php'</script>";
+	
+?>
+
+
+
+
+

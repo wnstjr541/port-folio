@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>예약 문의</title>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<h1>예약 문의</h1>
+	<form action="#" method="post">
+		<p>
+			<label for="userName">작성자 </label>
+			<input id="userName" name="userName" type="text" />
+		</p>
+		<p>
+			<label for="userPWD">비밀번호</label>
+			<input id="userPWD" name="userPWD" type="password" />
+		</p>
+		<p>
+			<label for="userTitle">제목</label>
+			<input id="userTitle" name="userTitle" type="text" />
+		</p>
+		<p>예약하실 객실을 선택하세요.
+			<input type="radio" name="userRome" value="single" checked id="single"/>
+			<label for="single">single</label>
+			<input type="radio" name="userRome" value="double" id="double"/>
+			<label for="double"> double</label> <br/>
+			<input type="image" src="images/btn_gallery.gif" alt="방둘러보기" name="btn_gallery"/>
+			
+
+		</p>
+		<p>기타 패키지 옵션을 선택하세요<br>
+			<input type="checkbox" id="option1" name="useroption1" value="조식" checked />
+			<label for="option1">조식</label>
+			<input type="checkbox" id="option2" name="useroption2" value="픽업서비스" />
+			<label for="option2">픽업서비스</label>
+			<input type="checkbox" id="option3" name="useroption3" value="room서비스" />
+			<label for="option3">room서비스</label>
+		</p>
+			<input type="submit" value="전송하기" name="btn1"/>
+			<input type="reset" value="취소" name="btn2"/>
+			<input type="button" value="이전 페이지" name="btn3"/>
+	</form>
+</body>
+</html>

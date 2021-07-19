@@ -1,0 +1,7 @@
+*{margin: 0; padding: 0}
+body{text-align: center; color: #fff; background: #b973ff; text-transform: uppercase;font-size: 30px}
+#wrap{width: 1000px; height: 900px; margin: 0 auto; }
+#side{width: 200px; height: 900px; float: left; background: #9326ff; line-height:900px}
+#header{width: 800px; height: 300px; background: #26ffff; line-height:300px}
+#contents{width: 800px; height: 300px; background: #9326ff; line-height:300px}
+#footer{width: 800px; height: 300px; background: #9326ff; line-height:300px}

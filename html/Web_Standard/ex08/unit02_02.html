@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> 상대 좌표 방식으로 배치하기 </title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			body { 
+				font:12px "맑은 고딕",돋움,arial; 
+				margin:20px 0px; 
+				}
+			section {
+				margin:0 auto;
+				width:750px;
+				}
+			div {
+				width:342px;
+				height:150px;
+				margin-left:20px;
+				margin-top:20px;
+				float:left;
+				}	
+			input[type="search"] {
+				padding:5px;
+				width:220px;
+				background-color:#efefef;
+				}
+			input[type="submit"] {
+				padding:7px 10px;
+				background-color:#000;
+				color:#fff;
+				border:none;
+				border-radius:5px;
+				}	
+			nav{ margin:0 auto; width: 800px; height: 50px;}
+			h1{background: #555555; margin: 0 auto; width: 850px; color: white; padding: 5px}
+			h2{text-shadow: 2px 2px 10px #000; margin-left: 120px; margin-top: 30px;}
+			h3{margin-left: 120px; margin-top: 20px;  font-weight:normal;}
+			a{text-decoration:none; color: #000000; padding: 10px;}
+			#logo{float:left; position: relative; left:-70px; top: -10px}
+			#topMenu{float:right;}
+			#topMenu>li{display:inline-block; position: relative; top: -30px; left: 30px;  border-right: 1px solid #000}
+			#topMenu>li:last-child{border:0}
+			#searchForm{float:left;}
+			.book1{background:url(images/bg_sm01.png) no-repeat}
+			.book2{background:url(images/bg_sm02.png) no-repeat}
+			.book3{background:url(images/bg_sm03.png) no-repeat}
+			.book4{background:url(images/bg_sm04.png) no-repeat}
+			a["contet:target"]{margin-left: 100px}
+			
+		</style>
+	</head>
+
+	<body>
+		<nav>
+			<figure>
+				<img src="images/top_logo.jpg" width="187" height="39" alt="정보문화사" id="logo"/>
+			</figure>
+			<ul id="topMenu">
+				<li class="liStyle"><a href="#">홈</a></li>
+				<li class="liStyle"><a href="#">회사소개</a></li>
+				<li class="liStyle"><a href="#">사이트맵</a></li>
+				<li class="liStyle"><a href="#">도움말</a></li>
+			</ul>
+			<form id="searchForm">
+				<input type="search" name="seachBox" />
+				<input type="submit" value="검색">
+			</form>
+		</nav>
+		<header>
+			<h1>시리즈 안내</h1>
+		</header>
+		<section>
+			<div class="book1">
+				<h2>실력이 탐나는 시리즈</h2>
+				<h3>전략적 실전 대비 입문서 </h3>
+				<p><a href="http://infopub.co.kr" target="_blank" title="정보문화사 사이트로 이동합니다.">&gt;&gt; GO</a></p>
+			</div>
+			<div class="book2">
+				<h2>길라잡이 시리즈</h2>
+				<h3>단계별로 배울 수 있는 지침서</h3>
+				<p><a href="http://infopub.co.kr" target="_blank" title="정보문화사 사이트로 이동합니다.">&gt;&gt; GO</a></p>
+			</div>
+			<div class="book3">
+				<h2>회사 실무에 힘을 주는 시리즈</h2>
+				<h3>자연스럽게 익히는 OA 핵심 기능 수록 </h3>
+				<p><a href="http://infopub.co.kr" target="_blank" title="정보문화사 사이트로 이동합니다.">&gt;&gt; GO</a></p>
+			</div>
+			<div class="book4">
+				<h2>눈길 시리즈</h2>
+				<h3>IT 실무 교재 시리즈</h3>
+				<p><a href="http://infopub.co.kr" target="_blank" title="정보문화사 사이트로 이동합니다.">&gt;&gt; GO</a></p>
+			</div>
+		</section>
+	</body>
+</html>

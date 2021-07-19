@@ -1,0 +1,51 @@
+
+
+BITNAMI WAMP > php my admin 들어감
+1. 데이터 베이스
+2. 이름 sample 만들기 클릭.
+- 한글 깨지면 이름 옆의 메뉴에서 utf-8 ci클릭
+3. 구조 메뉴로 들어가있다. 옆의 SQL을 클릭.
+4. vscode에서 mem.sql파일 생성후 해도 되고. sql에서 바로 해도된다.
+ex)
+sql
+create table mem()
+vs code mem.sql
+create table mem()
+동일하다. vscode에서 할시 다 작성한걸 sql에 붙여넣기해야한다. 결국 sql에 직접하는편이 빠르다.
+5. create table mem(
+	num int not null AUTO_INCREMENT,
+    id char(20) not null,
+    pass char(20) not null,
+    name char(20) not null,
+    age int,
+    PRIMARY key(num)
+)
+작성후 실행시킴.
+
+추가법.
+
+1. 옆의 메뉴보면 mem추가된게 확인. 옆에 + 누르면 열(컬럼)이 있다. 그거 클릭하면 밑에 콘솔창있음.
+
+2. desc mem 콘솔창에 입력후 컨트롤 엔터 누른다. 그럼 테이블 내용 나옴
+// desc mem은 mem으로 설정한 테이블값을 보여주는것. 실행하기 위해선 컨트롤 엔터를 눌러줘야한다.
+
+3. alter table mem add email char(30)하고 컨트롤 엔터. 그럼 email이 30글자정도 추가된것이다.
+// 테이블을 수정 하기 위해서는 alter table 이라는 명령어를 사용하여 테이블을 수정한다.
+
+삭제법.
+
+1.alter table mem drop email
+//drop이 삭제하는 명령어.
+
+테이블 삭제법
+1.drop table mem
+
+레코드 삭제법
+delete from member where name=""
+해당하는 이름의 레코드를 지운다.
+
+바꾸는법
+
+1.alter table mem change address(바꿀거) phone(바꾸는 대상) char(20)
+alter table mem modify phone int; => phone에서 설정한 char(20)을 int로 바꾸는것. modify는 type을 바꾸는것이라 생각
+

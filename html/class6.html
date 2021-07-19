@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title> 5차 정리 </title>
+	<style type="text/css">
+		.box{width: 1000px; margin: 20px auto; background-color: #000000; color: white; padding: 20px;}
+		a{color:white; text-decoration: none;}
+		li{line-height: 200%}
+		h2{text-align: center;}
+		h1{text-align: center;}
+		ul li{list-style-type: none;}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h1>5일차 정리</h1>
+			<ul>
+				<li><a href="Web_Standard/ex04/unit03_01.html">예약 문의</a></li>
+				<li><a href="Web_Standard/ex04/unit03_02.html">예약 문의2</a></li>
+				<li><a href="Web_Standard/ex04/unit03_03.html">예약 문의3</a></li>
+				<li><a href="Web_Standard/ex04/unit04_01.html">예약 문의4</a></li>
+				<li><a href="Web_Standard/ex04/total4.html">회원가입</a></li>
+			</ul>
+		<h2>form</h2>
+		<ul>
+			<li>사용자가 웹사이트로 정보를 보낼수 있는 요소 ex) 회원가입</li>
+		</ul>
+		<ul>
+			<h2>태그 정리</h2>
+			<li>action : 폼을 전송할 서버쪽 스크립트 파일 지정</li>
+			<li>name : 폼을 식별하기 위한 이름을 지정</li>
+			<li>accept-charset : 폼 전송에 사용할 문자 인코딩을 지정 (uft-8)</li>
+			<li>target : action에서 지정한 스크립트 파일을 현재창이 아닌 다른위치에 열도록 지정합니다</li>
+			<li>method : 폼을 서버에 전송할 http메소드를 정합니다(get 또는 post)</li>
+		</ul>
+		<ul>
+			<h2>HTTP Method란 </h2>
+			<li>클라이언트와 서버 사이에 이루어지는 요청(Request)과 응답(Response) 데이터를 전송하는 방식. (서버에 요청을 보내는 방법)</li>
+			<li>ge: 폼 데이터를 url 끝에 붙여서 눈에 보이게 보낸다</li>
+			<li>post : 내부적으로 보이지 않게 보낸다.</li>
+			<li>보안이 필요하지 않으면서 지정된 리소스에서 자원을 읽는 경우 get 그 외 보안이 필요한 경우는 post</li>
+		</ul>
+		<ul>
+			<h2>input 기본형태</h2>
+			<li>p <br/> label for="userID" /label <br/>
+				input type="text" name="userID" id="userID" placeholder="이름을 입력해주세요" required="required" autofocus="auto"/>	/p
+			</li>
+			<li> label 태그는 사용자 인터페이스(UI) 요소의 라벨(label)을 정의할 때 사용합니다.label 요소는 for 속성을 사용하여 다른 요소와 결합하고 label 요소를 결합하고자 하는 요소 내부에 위치시키면 for 속성을 사용하지 않더라도 해당 요소와 결합시킬 수 있습니다. <br/>
+			label 요소를 사용할 수 있는 요소는 다음과 같습니다. <br/>
+			- button, input, meter, output, progress, select, textarea
+			</li>
+		</ul>
+		<ul>
+			<li>name : 서버로 전송될 라디오 및 체크박스의 이름. key 값에 해당함.라디오 버튼은 동일한 그룹끼리 같은 name 값을 지정함.</li>
+			<li>value : 서버로 넘어갈 값을 지정.</li>
+			<li>checked : 초깃값으로 기본 선택될 항목을 설정.</li>
+			<li>required : 필수 작성 사항</li>
+			<li>disabled 속성은 해당 input 요소가 비활성화됨을 명시, 폼 데이터가 제출될 때도 disabled 속성이 명시된 input 요소의 데이터는 제출되지 않습니다.</li>
+			<li>readonly 속성은 input 요소의 입력 필드가 읽기 전용임을 명시</li>		
+			<li>radio : 둥근 버튼 생성. 단일 선택 가능</li>
+			<li>checkbox : 체크 박스(사각형) 생성. 다중 선택 가능</li>
+			<li>button 4가지 : image,submit,reset,button</li>
+			<li>fieldset 태그는 form 요소에서 연관된 요소들을 하나의 그룹으로 묶을 때 사용합니다.</li>
+			<li>legend 태그는 fieldset 요소의 캡션(caption)을 정의할 때 사용합니다.select 태그의 form 속성은 해당 드롭다운 리스트가 포함될 하나 이상의 form 요소를 명시합니다.</li>
+			<li>ex)select name="order" form="myForm"</li>
+			<li>option value="americano">아메리카노/option</li>
+			<li>option value="caffe latte">카페라테/option</li>
+			<li>option value="cafe au lait">카페오레/option</li>
+			<li>option value="espresso">에스프레소/option</li>
+			<li>/select
+		</ul>
+				
+	</div>
+</body>
+</html>

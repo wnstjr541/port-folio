@@ -1,0 +1,5 @@
+7. board_view.php부분에서 버튼 onclick시 location.href로 이동하는 페이지를 만들어준다. 
+
+8. 첫번째로 만들 버튼 링크 board_modify_form.php
+
+9. 두번째로 만들 버튼 링크 board_delete.php

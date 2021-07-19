@@ -1,0 +1,22 @@
+ event 버블링. div박스 두개와 그 안에 버튼 하나. 
+
+console.log(`button 1 ${event.currentTarget},${event.target}`) 누를시 버블링이 되어 버튼의 이벤트값이 출력된후 부모값의 이벤트가 차례대로 발생. 그걸 막기 위해선.  event.stopPropagation();을 사용하면 그 부분에서부터 버블링이 막힌다. 
+
+만약 버튼에 함꼐 등록된 이벤트를 방지하고싶을시. (button1,button2이런식으로 button변수에다가 두개)
+
+stoplmmediatePropagation() 을 사용하면. 자신만 핸들링한다. 
+대신 button2에 준다면. 즉 이전에 설정한 button1의 값이 있다면 이전에 발생한것은 여전히 발생
+
+중요!!! 위에 설명한것들은 가능하면 사용하지마라
+event.stopPropagation(),stoplmmediatePropagation() 이것들 대신. 
+if(event.target !== event.currentTarget){
+ return
+}
+이런식으로 작성
+
+
+
+event.target은 부모로부터 이벤트가 위임되어 발생하는 자식의 위치, 내가 클릭한 자식 요소를 반환
+currentTarget은 이벤트가 부착된 부모의 위치를 반환
+요약하면 event.target은 자식요소 리턴. event.currentTarget은 부모요소 리턴
+

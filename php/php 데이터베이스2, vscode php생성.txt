@@ -1,0 +1,49 @@
+  vscode로 설정법.
+
+frend.sql이란 파일 생성후(그냥 이름임)
+create table frend(
+    //auto_increment는 자동 증가
+    num int nou null auto_increment,
+    name char(20) not null,
+    tel char(20) not null,
+    address char(80),
+    primary key(num)
+)
+
+저장. 그후 open phpadmin에서 가져오기. 파일 htdocs에서 찾은다음에 실행.
+
+  insert 사용법
+
+insert into frend (name,tel,address) values('준석','010-555-5555','한국')
+이런식으로 frend라는 php테이블에서 name,tel,address에 각자 value 값으로 준석, 번호, 주소 이런식으로 차례대로 넣는다.
+중요!!!
+insert문은 데이터베이스 테이블에 새로운 레코드를 추가하는데 사용한다!
+
+  SELECT 사용법
+
+1.select * from frend;
+insert로 추가한 레코드를 전부 보여준다.
+
+2.select id,name,address,gender from member where gender = 'W'
+where gender = 'W'는 W를 가진 member의 id,name,address,gender를 보여준다.
+
+3.select name, tel, gender, age from member where age >=50 and gender = 'M';
+나이가 50이상이고 성별이 남자인사람.
+
+4.select name,address, age from member where ((age >=30 and age < 40) or (age >= 50 and age<60)) and gender = "M";
+나이가 30대와 50대 남자사람.
+
+5.select name,tel from member where name like '이%';
+이씨 성을 가진 사람의 이름과 전화번호.
+중간의것을 찾으려면 '%이름%'이런식으로 앞뒤로함.
+
+like는 해당하는 글자를 포함한것을 찾을수있다. 이름을 전부 안다면 굳이 쓸필요는 없다. 
+
+6.select name,age,address,tel,gender from member where address like '서울%' order by age;
+주소가 서울인 사람을 나이순으로 정리. order by age가 나이순으로 내림차순. order by age desc를 붙이면 오름차순이된다.
+
+UPDATE 사용법
+
+1.UPDATE member set age = 26 where name = "이태현";
+UPDATE로 이태현 나이 26살로 바꿈
+

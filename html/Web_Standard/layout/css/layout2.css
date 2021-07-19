@@ -1,0 +1,10 @@
+*{margin: 0; padding: 0;}
+body{text-align: center; background: #4cffff; color: white; font-size: 30px}
+#wrap{width:1000px; height: 1500px; text-transform: uppercase; margin: 0 auto;} 
+#header{width: 100%; height: 100px; background: #0000b3; line-height: 100px}
+#nav{width: 100%; height: 100px; background: #0000d9; line-height: 100px}
+#side_left{width: 300px; height: 600px; background: #0036d9; float: left;line-height: 600px}
+#contents{width: 300px; height: 600px; background: #0000b3; float: left; line-height: 600px}
+#side_right{width: 400px; height: 600px; background: #00238c; float: right; line-height: 600px}
+
+#footer{width: 1000px; height: 100px; background: #794cff; clear: both; line-height: 100px}

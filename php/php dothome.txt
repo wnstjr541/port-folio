@@ -1,0 +1,35 @@
+1. notepad에서 db폴더 생성후. members.sql파일 생성후 밑에 처럼 넣는다.
+create table members(
+	num int not null auto_increment,
+	id char(15) not null,
+	pass char(15) not null,
+	name char(10) not null,
+	email char(80),
+	regist_dat char(20),
+	level int,
+	point int,
+	primary key(num)
+);
+2. dothome 에서 로그인. 마이닷홈. 상세보기. 밑에 내리면
+mysql관리있음. 복사 붙여넣기하면 phpmyadmin창뜸
+3. 아이디 비밀번호 닷홈꺼 치면 된다. 
+4. 위의 메뉴에서 데이터베이스 누른다. 
+5. 왼쪽메뉴 아이디 클릭한다.
+6. 위 메뉴에서 sql 누른후. create table members로 넣은 값 전부 복사 붙여넣기한후 실행한다.
+
+
+insert.php 
+
+<?php 
+	$id=$_POST["id"];
+	$pass=$_POST["pass"];
+	$pass=$_POST["name"];
+	$email1=$_POST["email1"];
+	$email2=$_POST["email2"];
+	$email=$email."@".$email2;
+	$regist_day=date("Y-m-d (H:i)");
+	
+	$con= mysql_connect("localhost", "wnstjr541" , "닷홈 비밀번호", "wnstjr541");
+	// mysql_Connect는 로컬호스트에. wnstjr541이라는 아이디와 뒤의 비밀번호. 그후 데이터베이스 wnstjr541에 연결
+?>
+

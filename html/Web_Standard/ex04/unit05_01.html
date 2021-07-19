@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>체크박스 크기조절</title>
+	<style type="text/css">
+		ul{list-style: none; margin-top:100px;}
+		ul li{margin-bottom: 15px;}
+		ul li:after{display: block; clear: both; content:"";}
+		ul li input[type="checkbox"]{display:none;}
+		ul li input[type="checkbox"]+label{width: 17px; height: 17px; background: #fa3062; cursor: pointer; border-radius: 3px; float: left;}
+		ul li input[type="checkbox"]+label span{position: absolute; display: block; left: 70px;}
+		ul li input[type="checkbox"]:checked+label{background:url(images/chek.png) #fa3062 no-repeat center; float: left;}
+	</style>
+</head>
+<body>
+	<div class="argree">
+		<ul>
+			<li>
+				<input type="checkbox" name="allAgree" id="a1" checked />
+				<label for="a1"><span>이용약관동의 (필수)</span></label>
+			</li>
+			<li>
+				<input type="checkbox" name="allAgree" id="a2"/>
+				<label for="a2"><span>개인정보 이용동의 (필수)</span></label>
+			</li>
+			<li>
+				<input type="checkbox" name="allAgree" id="a3"/>
+				<label for="a3"><span>이용약관동의 (필수)</span></label>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/* 전체 선택자 */
+/* body 선택자 */
+/* 하이퍼링크 디자인 */
+/* div 요소 디자인  */
+/* h1 요소 디자인 */
+		
+*{margin:0; padding:0; text-decoration:none; color: #000000}
+body{margin:50px; text-align:center;}
+ul>li{text-align:left}
+a:link, a:visited{color: #b35900}
+a:hover{background: #a300d9; color: #ffffff}
+a:active{color:yellow}
+div{width: 200px; margin-top: 20px}
+#categoryBox{border: 5px solid #4cffff}
+#bbsBox{border: 5px solid #ff4cff; }
+#categoryBox h1{border-bottom: 1px solid black;}

@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: black;
+}
+
+#header{
+	width: 100%; 
+	background: #ffcc99
+}
+.container {
+  width: 1400px;
+  height: inherit;
+  margin: 0 auto;
+}
+
+.top {
+  background-color: #64ffb7;
+  height: 36px;
+}
+.to1 > li {
+  display: inline;
+  float: left;
+}
+.to2 > li {
+  display: inline;
+  float: right;
+}
+
+.top1 {
+  background-color: #13f7ab;
+  height: 96px;
+}
+
+.navv > li {
+  display: inline;
+  clear: both;
+}
+
+.serch {
+  height: 100px;
+  width: 100%;
+  background-image: url( ../img/back.jpg);
+}
+.text-box{
+	width: 500px;
+	height: 50px;
+}
+#nav-lnk {
+  background-color: #65e5ee;
+  height: 81px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#banner {
+  height: 700px;
+}
+.ban1-1{}
+.ban1-2{}
+.ban1-3{}
+
+.img {
+  width: 900px;
+  height: 500px;
+  float: left;
+  margin-right: 30px;
+}
+.container2 {
+  width: 470px;
+  height: 280px;
+  float: left;
+  margin-bottom: 15px;
+  background: rgb(188, 253, 82);
+}
+.img2 {
+  width: 470px;
+  height: 211px;
+  float: left;
+}
+.banner-link {
+  height: 178px;
+  width: 100%;
+  background: wheat;
+  clear: both;
+  margin-top: 20px;
+}
+
+#bottom_post {
+  height: 1000px;
+  margin-top: 10px;
+  background: #a8a8b7;
+  clear: both;
+}
+
+.ban2-1 {
+  width: 910px;
+  height: 280px;
+  background: #fff;
+  float: left;
+  margin: 0 auto;
+}
+.banimg {
+  width: 450px;
+  height: 280px;
+  float: right;
+}
+
+.bottom-post1 {
+  width: 49%;
+  height: 60%;
+  background: springgreen;
+  float: left;
+  margin-right: 25px;
+  margin-top: 25px;
+}
+.bottom-post2 {
+  width: 49%;
+  height: 60%;
+  background: slategray;
+  float: left;
+  margin-top: 25px;
+}
+
+#service {
+  background-color: #4adaf3;
+  height: 93px;
+}
+#bottom1 {
+  height: 632px;
+  margin-top: 40px;
+}
+.bot-tit > h3,
+p {
+  display: inline;
+}
+.bot-back1 {
+  width: 700px;
+  height: 360px;
+  float: left;
+}
+.box {
+  width: 300px;
+  height: 360px;
+  float: left;
+  border: 1px solid black;
+}
+
+.bot-back2 {
+  width: 328px;
+  height: 360px;
+  float: right;
+}
+
+.box-link {
+  width: 100%;
+  height: 100px;
+  background: chartreuse;
+  clear: both;
+}
+
+#foot {
+  background-color: #d900d9;
+  height: 200px;
+}

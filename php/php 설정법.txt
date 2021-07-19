@@ -1,0 +1,85 @@
+설치 방법
+
+1. https://bitnami.com/
+밑에 64비트짜리 다운. 
+
+2. 다운받은거 클릭. select components 
+체크 다 해제. 맨 밑 phpmyadmin만 필요.
+
+3. root password  그냥 핸드폰번호같은 까먹지않는것
+      Re-enter  동일하게
+4. 다 깔린후 C:\Bitnami\wampstack-8.0.7-0\apache2\htdocs 이 경로에 들어가 htdocs폴더를 vscode로 연다.
+
+
+사용법
+
+1. localhost 웹페이지에 검색
+2. info.php파일 만들고 나머지 파일은 전부 삭제. 이미지폴더까지 삭제.
+3. bitnami WAMP Stack 검색창에서 검색. 2번째 open phpmyadmin 클릭.
+4. 사용자명은 root 암호는 아까 정해놓은거
+
+5. 내pc. 우클릭 속성. 정보. 고급시스템 설정. 고급에 환경변수.  사용자변수의 path에 커서클릭후 새로만들기. 
+6. 이름 PHP , 변수값은 디렉토리 찾아보기. BITNAMI에 php확인(C:\Bitnami\wampstack-8.0.7-0\php) 확인.
+7. vscode에서 PHP IntelliSense 다운
+8. settings.json 들어가서
+ "php.validate.executablePath": "C:/Bitnami/wampstack-8.0.7-0/php/php.exe",
+ "php.executablePath": "C:/Bitnami/wampstack-8.0.7-0/php/php.exe",
+복사 붙여넣기. 맨밑에 json.schemas위에
+
+9. index.php생성
+<?php 
+    echo "안녕하세요"  //echo가 화면에 뜨게하는거
+?>  //하나만있을때에는 안써도 뜨긴하지만 무조건 ?>써라
+localhost들어가서 확인.
+<?php 
+    $a= 10; //변수는 $
+    $b= 20;
+    $c= $a+$b;
+?>
+
+"  " // 안의 변수 구분가능. 백틱처럼
+'  ' // 문자열로 구분.
+
+
+index생성
+
+1. echo.php생성후 !단축키로 dom(html) 생성
+2. 
+<body>
+    <?php
+        echo "고양이와 토끼";
+    ?>
+</body>
+http://localhost/echo.php //이걸로 실행. 
+3. 이미지 저장법. C:\Bitnami\wampstack-8.0.7-0\apache2\htdocs경로에 이미지 저장한다.
+    <?php 
+      $filename="cat.jpg";
+      echo "<img src='$filename' class='cat'>" //이런식으로 class가능.
+    ?>
+4. 이미지 src 부분에 ""를 중복해서 넣으려면
+    <?php 
+        echo "<img src=\"cat.jpg\">"   // "\앞 \뒤"를 넣어주면된다.
+    ?>
+이런식으로도 가능하다. $a 앞에 \$a를 붙이면 결과값은 $a가 나온다. 변수로써의 기능이 없어짐
+
+5. php안의 변수를 불러오는방법
+    <?php 
+        $id = "hyun";
+        $name = "준석";
+    ?>
+    <h3>회원정보</h3>
+    <p>아이디 : <?=$id?></p>
+    <p>이름 : <?=$name?></p>
+6. email이나 전화번호는. @나 -이 붙을때
+        $email1 = "admin";
+        $email2 = "naver.com";
+        $email_address = $email1."@".$email2;
+이런형식으로 작성한다. 전화번호도 위와 동일.
+-=, +=, *=, %=, /= 같은거 사용 가능
+
+
+
+localhost는 닷홈처럼 index만 가능. 
+
+
+
