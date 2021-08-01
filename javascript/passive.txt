@@ -1,5 +1,0 @@
-checkbox같은거은 preventDefault가 정상적으로 작동하지만. scroll같이 즉각적인 이벤트는 먹히지 않는다. 그렇기때문에 passive라는 옵션을 사용.
-
-passive: true 라는것은, 나는 수동적으로 이벤트를 듣기만 할꺼야. 이벤트를 취소하거나 다른것은 절대 하지 않을것.
-passive true로 설정된 것은(scroll,) false로 바꾸지 않는편이 좋다. preventDefault()를 호출하지 않는편이 좋다. 
- 

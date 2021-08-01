@@ -513,13 +513,13 @@ text-align: center; line-height: 7px;}
   text-align: center;
   margin-bottom: 100px;
 }
-#full>li{
+#full>ul>li{
   float: left;
   padding: 10px;
   box-sizing: border-box;
 }
-#full>li>a{display: block; }
-#full>li>a>img{display: block; width: 480px; height: 300px;}
+#full>ul>li>a{display: block; }
+#full>ul>li>a>img{display: block; width: 480px; height: 300px;}
 
 #full>.close {
   position: absolute;
